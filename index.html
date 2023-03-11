@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-基于WebUI的跨平台Stable Diffusion AI绘画部署教程（目前仅更新Mac）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/02/25/%E5%9F%BA%E4%BA%8EWebUI%E7%9A%84%E8%B7%A8%E5%B9%B3%E5%8F%B0Stable%20Diffusion%20AI%E7%BB%98%E7%94%BB%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B%EF%BC%88%E7%9B%AE%E5%89%8D%E4%BB%85%E6%9B%B4%E6%96%B0Mac%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2023-02-25T07:20:15.917Z" itemprop="datePublished">2023-02-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="基于WebUI的跨平台Stable-Diffusion-AI绘画部署教程（目前仅更新Mac）"><a href="#基于WebUI的跨平台Stable-Diffusion-AI绘画部署教程（目前仅更新Mac）" class="headerlink" title="基于WebUI的跨平台Stable Diffusion AI绘画部署教程（目前仅更新Mac）"></a>基于WebUI的跨平台Stable Diffusion AI绘画部署教程（目前仅更新Mac）</h1><h2 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h2><h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h3><p>本教程适用于有部分开发基础，懂得命令行基本操作的用户。如果对于git、homebrew或者命令行一窍不通，可以尝试app封装版本──DiffusionBee，<a target="_blank" rel="noopener" href="https://diffusionbee.com/">点我前往官网</a>。</p>
+<p>相较于DiffusionBee，WebUI版本的Stable可以兼容的模型更多，bug更少，画面质量更高（DB目前不支持vae文件，很多模型渲染出来会发灰），可以兼容更多的模型（DB部分模型无法导入）。</p>
+<p>建议感兴趣的同学可以稍微花个半小时装一下git，homebrew等基础依赖，然后跟着本教程一步一步来。</p>
+<h3 id="1-依赖安装"><a href="#1-依赖安装" class="headerlink" title="1.依赖安装"></a>1.依赖安装</h3><p>请先确定您正处于代理状态（或者homebrew和pip的镜像源很稳定）</p>
+<p>打开mac的终端，按顺序输入以下命令</p>
+<p>1）安装homebrew（安装过的不用再装了）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>2）安装基本依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install cmake protobuf rust python@3.10 git wget</span><br></pre></td></tr></table></figure>
+
+<p>3）克隆存储库（默认在用户文件夹中）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui</span><br></pre></td></tr></table></figure>
+
+<p>4）前往<a target="_blank" rel="noopener" href="https://www.123114514.xyz/">资源站</a>下载模型</p>
+<p><img src="https://s2.loli.net/2023/02/25/1H8zGFJq9rvDcA6.png" alt="Picsee-20230225150409"></p>
+<p><img src="https://s2.loli.net/2023/02/25/7CxjR2B4rQVqgfu.png" alt="Picsee-20230225150419"></p>
+<p>进入后选择你的模型（二次元画作的话推荐使用Anything V3.0，比较稳定，但是vae（防止发灰，可以这么理解）要到<a target="_blank" rel="noopener" href="https://web.archive.org/web/20230105135929/https://huggingface.co/Linaqruf/anything-v3.0/blob/main/Anything-V3.0.vae.pt">hugging face</a> 下载）</p>
+<p><img src="https://s2.loli.net/2023/02/25/DoaV2teSdqK64jR.png" alt="Picsee-20230225150817"></p>
+<p>(目前3.0不维护了，但是vae.pt可以在wayback machine中找到)</p>
+<p>下载好模型后，在终端中输入以下指令，将模型拖入弹出的文件夹中（如果有vae则将vae一起拖进去，确保两个文件除了拓展名其它都一样）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open ~/stable-diffusion-webui/models/Stable-diffusion</span><br></pre></td></tr></table></figure>
+
+<p>5）启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/stable-diffusion-webui</span><br><span class="line">./webui.sh</span><br></pre></td></tr></table></figure>
+
+<p>注意：<strong>一定要cd进去再打开，不要直接 sh ~&#x2F;stable-diffusion-webui&#x2F;webui.sh，不然会报错</strong></p>
+<p>6）完成</p>
+<p>跟着提示走就行了，有报错可以在下面发帖，我会回复</p>
+<p>在所有依赖自动安装完成后，会有如图显示</p>
+<p><img src="https://s2.loli.net/2023/02/25/34SfXtIVjBKeb9r.png" alt="Picsee-20230225151338"></p>
+<p>接着可以访问上面的local URL来进行AI绘画啦！</p>
+<p>本教程仅为安装教程，后期如果有人需要，会出插件教程</p>
+<p>界面图（刚安装好为英文，可以b站搜SD汉化教程）</p>
+<p><img src="https://s2.loli.net/2023/02/25/VSZ5HKY7L8hjsvn.png" alt="Picsee-20230225151555"></p>
+<p>绘画图片展示</p>
+<p><img src="https://s2.loli.net/2023/02/25/DcJOSExhTz2bqlM.png" alt="00059-777662464"></p>
+<p><img src="https://s2.loli.net/2023/02/25/4thpZMcw92PYaIW.png" alt="00035-1673888093"></p>
+<p><img src="https://s2.loli.net/2023/02/25/Hv4d9PA1wtsUqn8.png" alt="00012-3844270718"></p>
+<p>可以配合<a target="_blank" rel="noopener" href="https://github.com/upscayl/upscayl/releases">Upscayl</a>进行超分辨率</p>
+<h3 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h3><p>出图速度我的m1 16gb大概是在半分钟到一分钟，配置差的话参数不要调太大。</p>
+<p>这个也有colab版本，不过本地会更舒服一点（个人感觉）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/25/%E5%9F%BA%E4%BA%8EWebUI%E7%9A%84%E8%B7%A8%E5%B9%B3%E5%8F%B0Stable%20Diffusion%20AI%E7%BB%98%E7%94%BB%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B%EF%BC%88%E7%9B%AE%E5%89%8D%E4%BB%85%E6%9B%B4%E6%96%B0Mac%EF%BC%89/" data-id="clf3mdv0p00039a9k1nlcbmhj" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【重要】暂时不要升级Parallels Desktop 18.2.0！！！" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/02/18/%E3%80%90%E9%87%8D%E8%A6%81%E3%80%91%E6%9A%82%E6%97%B6%E4%B8%8D%E8%A6%81%E5%8D%87%E7%BA%A7Parallels%20Desktop%2018.2.0%EF%BC%81%EF%BC%81%EF%BC%81/" class="article-date">
+  <time class="dt-published" datetime="2023-02-18T14:17:04.617Z" itemprop="datePublished">2023-02-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="【重要】暂时不要升级Parallels-Desktop-18-2-0！！！"><a href="#【重要】暂时不要升级Parallels-Desktop-18-2-0！！！" class="headerlink" title="【重要】暂时不要升级Parallels Desktop 18.2.0！！！"></a>【重要】暂时不要升级Parallels Desktop 18.2.0！！！</h1><h2 id="事件起因"><a href="#事件起因" class="headerlink" title="事件起因"></a>事件起因</h2><p>由于Parallels的正版较贵，很多人会选择购买所谓的一两百块的“企业授权”。在Parallels Desktop 18.2.0之前，所谓“企业授权”是完全可用的。由于Parallels官方在18.2.0引入签名验证之后，目前通过注入License来达成静态破解目的的方法均失效，用户购买的“企业授权”也会失效！</p>
+<h2 id="“企业授权”究竟是什么"><a href="#“企业授权”究竟是什么" class="headerlink" title="“企业授权”究竟是什么"></a>“企业授权”究竟是什么</h2><p>目前市面上的企业授权其实本质上均为License注入破解。与我们所免费使用的License没有区别，仅仅只是License经过售卖者的服务器而已。甚至还有可能被服务器验证商给注销（比如说我）<img src="https://s2.loli.net/2023/02/18/UjefZpJ4nxOhbXM.png" alt="截屏2022-09-04 20.51.43"></p>
+<p>我这里是在去年八月购买的“企业版授权”，然后后来据说是服务商跑路了，那个License就被吊销了（好歹钱是退回来了）。</p>
+<p>综上，“企业授权”目前看来就是特别一点的破解版，并且后续版本肯定跟“企业授权”无缘了。</p>
+<p><strong>也是有正版的企业授权的，只不过不会给普通人用</strong></p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><h3 id="凑合着用"><a href="#凑合着用" class="headerlink" title="凑合着用"></a>凑合着用</h3><p>目前18.1.1没有影响，可以在<a target="_blank" rel="noopener" href="https://macapp.org.cn/app/parallels-desktop.html">MacApp</a>下载一键注入版本。注意一定要屏蔽Parallels的自动更新。</p>
+<h4 id="屏蔽更新具体方法"><a href="#屏蔽更新具体方法" class="headerlink" title="屏蔽更新具体方法"></a>屏蔽更新具体方法</h4><blockquote>
+<p>1.在Parallels Desktop的偏好设置中禁用自动更新</p>
+<p>2.由于Parallels官方会通过客户端联网检测证书，可以选择屏蔽hosts来做到“一劳永逸”</p>
+<p>具体方法如下：</p>
+<p>1）在<a target="_blank" rel="noopener" href="https://github.com/Ligure-Studio/PD-Hosts-Locker/releases">官网</a>下载开源的PD Hosts Locker</p>
+<p><img src="https://s2.loli.net/2023/02/18/4IfJPq8meWgtz1y.png" alt="Picsee-20230218220935"></p>
+<p>双击打开，按照说明使用</p>
+<p><img src="https://s2.loli.net/2023/02/18/KfmnJDW1RT2X8tA.png" alt="Picsee-20230218221014"></p>
+<p>也可以使用右侧文件夹中的源码自己构建。</p>
+<p><strong>注意！本软件采用备份策略，即将您更改时的hosts文件自动备份至用户文件夹并隐藏，请勿删除，若删除备份文件或更改&#x2F;etc文件夹权限，可能会造成功能错误</strong></p>
+<p>完成以上两步操作后，即可安心18.1.1养老了</p>
+</blockquote>
+<h3 id="购买正版"><a href="#购买正版" class="headerlink" title="购买正版"></a>购买正版</h3><p>我是趁11.11八折入的正版，不过现在apsgo.com好像有更便宜的，有兴趣可以去了解一下。</p>
+<h2 id="虚拟机数据相关"><a href="#虚拟机数据相关" class="headerlink" title="虚拟机数据相关"></a>虚拟机数据相关</h2><p>可以将您的.pvm文件备份一份到其他文件夹。这个.pvm文件存放着您虚拟机的一切资料，以免后续造成的资料损失。</p>
+<p>打开终端，输入这一串指令以进入您的虚拟机默认文件夹</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open ~/parallels</span><br></pre></td></tr></table></figure>
+
+<p>或者在Parallels“控制中心”中点选“在Finder”中显示</p>
+<p><img src="https://s2.loli.net/2023/02/18/sPwA8FDj6GqS3pV.png" alt="Picsee-20230218221724"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/18/%E3%80%90%E9%87%8D%E8%A6%81%E3%80%91%E6%9A%82%E6%97%B6%E4%B8%8D%E8%A6%81%E5%8D%87%E7%BA%A7Parallels%20Desktop%2018.2.0%EF%BC%81%EF%BC%81%EF%BC%81/" data-id="clf3mdv0o00029a9k3e4dfunn" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Ligure Studio 开发组招募" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/01/30/Ligure%20Studio%20%E5%BC%80%E5%8F%91%E7%BB%84%E6%8B%9B%E5%8B%9F/" class="article-date">
+  <time class="dt-published" datetime="2023-01-30T13:44:30.206Z" itemprop="datePublished">2023-01-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Ligure-Studio-开发组招募"><a href="#Ligure-Studio-开发组招募" class="headerlink" title="Ligure Studio 开发组招募"></a>Ligure Studio 开发组招募</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Ligure Studio 开发组目前由<a target="_blank" rel="noopener" href="https://github.com/FANChenjia/">MingS</a>，<a target="_blank" rel="noopener" href="https://github.com/yeenjie123456">yeenjie</a>，<a target="_blank" rel="noopener" href="https://github.com/Jerry-XU1010">Jerry</a>（排名不分先后）运营，是一个自由软件开发团队。</p>
+<p>目前着手的项目有基于MIT协议开源的<a target="_blank" rel="noopener" href="https://github.com/FANChenjia/MacOSHelperShell">OSHelperShell</a>（已更新至Stable 0.0.3 版本）。正在筹划OSHelperLite（计划基于SwiftUI开发图形化界面，GPL协议开源）和其他项目。</p>
+<p><strong>若您有兴趣，请联系QQ 1785710066 （MingS）详谈。或发邮件至<a href="mailto:&#x6d;&#105;&#110;&#x67;&#115;&#104;&#x65;&#x6e;&#46;&#119;&#x6f;&#x72;&#107;&#64;&#x6c;&#105;&#x67;&#x75;&#114;&#101;&#46;&#x65;&#117;&#46;&#x6f;&#x72;&#x67;">&#x6d;&#105;&#110;&#x67;&#115;&#104;&#x65;&#x6e;&#46;&#119;&#x6f;&#x72;&#107;&#64;&#x6c;&#105;&#x67;&#x75;&#114;&#101;&#46;&#x65;&#117;&#46;&#x6f;&#x72;&#x67;</a>。我们期待您的加入！</strong></p>
+<h2 id="招募须知"><a href="#招募须知" class="headerlink" title="招募须知"></a>招募须知</h2><p>Ligure Studio 开发组崇尚开源精神，开发自由软件。团队成员均为开发组贡献者，不以资历、能力以及其他一切因素划分。无论您的开发能力如何，只要热爱开发，具有互联网共享精神，都可以加入我们的团队一起交流学习。我们希望打造一个自由的交流开发平台，有组织地共同开发项目。Ligure Studio的开发工作是无偿的，更多的是一种交流探讨。</p>
+<h2 id="我们需要您的加入"><a href="#我们需要您的加入" class="headerlink" title="我们需要您的加入"></a>我们需要您的加入</h2><p>目前我们的项目需求</p>
+<blockquote>
+<p>Icon设计师</p>
+<p>SwiftUI前端架构师</p>
+<p>Web前端架构师（基于h5）</p>
+<p>Shell架构师等</p>
+</blockquote>
+<p>无论您是否有以上特长或专业，我们都希望您能够加入我们，共同为热爱付出</p>
+<p>*Ligure Studio 与MacApp分享频道及论坛紧密合作，目前着重iOS和macOS开发。成员主要的联系方式有QQ和Session。</p>
+<p><strong>若您有兴趣，请联系QQ 1785710066 （MingS）详谈。或发邮件至<a href="mailto:&#109;&#105;&#110;&#103;&#x73;&#x68;&#x65;&#x6e;&#x2e;&#119;&#111;&#114;&#x6b;&#64;&#x6c;&#x69;&#x67;&#x75;&#x72;&#x65;&#x2e;&#101;&#x75;&#46;&#111;&#x72;&#x67;">&#109;&#105;&#110;&#103;&#x73;&#x68;&#x65;&#x6e;&#x2e;&#119;&#111;&#114;&#x6b;&#64;&#x6c;&#x69;&#x67;&#x75;&#x72;&#x65;&#x2e;&#101;&#x75;&#46;&#111;&#x72;&#x67;</a>。我们期待您的加入！</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/01/30/Ligure%20Studio%20%E5%BC%80%E5%8F%91%E7%BB%84%E6%8B%9B%E5%8B%9F/" data-id="clf3mdv0l00009a9khqple328" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-资源分享" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/01/30/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/" class="article-date">
+  <time class="dt-published" datetime="2023-01-30T12:34:22.496Z" itemprop="datePublished">2023-01-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="资源分享"><a href="#资源分享" class="headerlink" title="资源分享"></a>资源分享</h1><h2 id="Aqueux-amp-Hej-By-dizzyup（文末副免费下载链接）"><a href="#Aqueux-amp-Hej-By-dizzyup（文末副免费下载链接）" class="headerlink" title="Aqueux&amp;Hej By dizzyup（文末副免费下载链接）"></a>Aqueux&amp;Hej By dizzyup（文末副免费下载链接）</h2><h3 id="Aqueux"><a href="#Aqueux" class="headerlink" title="Aqueux"></a>Aqueux</h3><p>Aqueux是一套基于历代macOS壁纸风格的壁纸集，预览如下</p>
+<p><img src="https://s2.loli.net/2023/01/30/mzuNLoh9H8lvFaJ.jpg" alt="1"></p>
+<p><img src="https://s2.loli.net/2023/01/30/zqhFsjd78uGR9DE.jpg" alt="2"></p>
+<p><img src="https://s2.loli.net/2023/01/30/Iv12rHCeGkhWwoE.jpg" alt="3"></p>
+<p><img src="https://s2.loli.net/2023/01/30/ZDEnSW5oXdxOp7A.jpg" alt="4"></p>
+<p><img src="https://s2.loli.net/2023/01/30/Vy4ikP2rdzfGwcX.jpg" alt="5"></p>
+<p><img src="https://s2.loli.net/2023/01/30/BPqI1x7SfHXs6cD.jpg" alt="6"></p>
+<p><img src="https://s2.loli.net/2023/01/30/msJMlYV4wCWjEbO.jpg" alt="7"></p>
+<p><img src="https://s2.loli.net/2023/01/30/z1nkFPNbOE2fgWj.jpg" alt="8"></p>
+<p><img src="https://s2.loli.net/2023/01/30/YRxFkpBXlPirSmu.jpg" alt="9"></p>
+<h3 id="Hej"><a href="#Hej" class="headerlink" title="Hej"></a>Hej</h3><p>Hej同样是一套基于新款imac壁纸风格设计的壁纸集，预览如下</p>
+<p><img src="https://s2.loli.net/2023/01/30/tFoJ1Vvy6YQ7ecx.jpg" alt="10"></p>
+<p><img src="https://s2.loli.net/2023/01/30/HfxYvoPwFOVEnW4.jpg" alt="11"></p>
+<p><img src="https://s2.loli.net/2023/01/30/2v67ScVGFZCwXuB.jpg" alt="12"></p>
+<p><img src="https://s2.loli.net/2023/01/30/s3zopjiv7SQfKge.jpg" alt="13"></p>
+<p><img src="https://s2.loli.net/2023/01/30/Cyr1wmYFnqkp3VG.jpg" alt="14"></p>
+<p><img src="https://s2.loli.net/2023/01/30/HWfapSIOTXkyJKE.jpg" alt="15"></p>
+<p><img src="https://s2.loli.net/2023/01/30/EnlGVogMdsJe1Ap.jpg" alt="16"></p>
+<p><img src="https://s2.loli.net/2023/01/30/5T3w4SaHjvdIy9i.jpg" alt="17"></p>
+<p><img src="https://s2.loli.net/2023/01/30/Le7xJVXzFZfyTGh.jpg" alt="18"></p>
+<p><img src="https://s2.loli.net/2023/01/30/px5kBEyL6Wu7rRw.jpg" alt="19"></p>
+<p><img src="https://s2.loli.net/2023/01/30/TNtk5bKfAFmwrBe.jpg" alt="20"></p>
+<h3 id="下载方面"><a href="#下载方面" class="headerlink" title="下载方面"></a>下载方面</h3><p>两套壁纸均可以安装包形式安装进系统，安装后可以在 Library&#x2F;Desktop Pictures 中找到（也可将自己的图片放入该文件夹中来安装进系统）</p>
+<p>*资源来自网络，如有侵犯您的权利，请联系我删除</p>
+<p><a target="_blank" rel="noopener" href="https://hector.me/">官网地址</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.123pan.com/s/IO7SVv-lQajh">下载链接</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/01/30/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/" data-id="clf3mdv0n00019a9kfriv788p" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/02/25/%E5%9F%BA%E4%BA%8EWebUI%E7%9A%84%E8%B7%A8%E5%B9%B3%E5%8F%B0Stable%20Diffusion%20AI%E7%BB%98%E7%94%BB%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B%EF%BC%88%E7%9B%AE%E5%89%8D%E4%BB%85%E6%9B%B4%E6%96%B0Mac%EF%BC%89/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/18/%E3%80%90%E9%87%8D%E8%A6%81%E3%80%91%E6%9A%82%E6%97%B6%E4%B8%8D%E8%A6%81%E5%8D%87%E7%BA%A7Parallels%20Desktop%2018.2.0%EF%BC%81%EF%BC%81%EF%BC%81/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/30/Ligure%20Studio%20%E5%BC%80%E5%8F%91%E7%BB%84%E6%8B%9B%E5%8B%9F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/30/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
