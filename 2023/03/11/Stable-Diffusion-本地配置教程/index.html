@@ -1,264 +1,407 @@
+
+
+
+
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hans">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>Stable Diffusion 本地配置教程 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="基于WebUI的跨平台Stable Diffusion AI绘画部署教程（目前仅更新Mac）macOS0.前言本教程适用于有部分开发基础，懂得命令行基本操作的用户。如果对于git、homebrew或者命令行一窍不通，可以尝试app封装版本──DiffusionBee，点我前往官网。 相较于DiffusionBee，WebUI版本的Stable可以兼容的模型更多，bug更少，画面质量更高（DB目前不">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Stable Diffusion 本地配置教程">
-<meta property="og:url" content="http://example.com/2023/03/11/Stable-Diffusion-%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="基于WebUI的跨平台Stable Diffusion AI绘画部署教程（目前仅更新Mac）macOS0.前言本教程适用于有部分开发基础，懂得命令行基本操作的用户。如果对于git、homebrew或者命令行一窍不通，可以尝试app封装版本──DiffusionBee，点我前往官网。 相较于DiffusionBee，WebUI版本的Stable可以兼容的模型更多，bug更少，画面质量更高（DB目前不">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s2.loli.net/2023/02/25/1H8zGFJq9rvDcA6.png">
-<meta property="og:image" content="https://s2.loli.net/2023/02/25/7CxjR2B4rQVqgfu.png">
-<meta property="og:image" content="https://s2.loli.net/2023/02/25/DoaV2teSdqK64jR.png">
-<meta property="og:image" content="https://s2.loli.net/2023/02/25/34SfXtIVjBKeb9r.png">
-<meta property="og:image" content="https://s2.loli.net/2023/02/25/VSZ5HKY7L8hjsvn.png">
-<meta property="og:image" content="https://s2.loli.net/2023/02/25/DcJOSExhTz2bqlM.png">
-<meta property="og:image" content="https://s2.loli.net/2023/02/25/4thpZMcw92PYaIW.png">
-<meta property="og:image" content="https://s2.loli.net/2023/02/25/Hv4d9PA1wtsUqn8.png">
-<meta property="article:published_time" content="2023-03-11T07:04:53.000Z">
-<meta property="article:modified_time" content="2023-03-11T07:05:40.297Z">
-<meta property="article:author" content="John Doe">
-<meta property="article:tag" content="教程">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2023/02/25/1H8zGFJq9rvDcA6.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="明燊小站" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="明燊小站" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="明燊小站" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-  
-<link rel="stylesheet" href="/css/style.css">
+  <meta name="keywords" content="教程" />
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
-  
+<link rel="canonical" href="http://example.com/2023/03/11/Stable-Diffusion-%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/">
+
+
+
+  <title>
+Stable Diffusion 本地配置教程 |
+Yume Shoka = 明燊小站</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
       </div>
     </div>
   </div>
-</header>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Stable Diffusion 本地配置教程
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="創建時間：2023-03-11 15:04:53">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">發表於</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-03-11T15:04:53+08:00">2023-03-11</time>
+  </span>
+</div>
 
-      <div class="outer">
-        <section id="main"><article id="post-Stable-Diffusion-本地配置教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/03/11/Stable-Diffusion-%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/" class="article-date">
-  <time class="dt-published" datetime="2023-03-11T07:04:53.000Z" itemprop="datePublished">2023-03-11</time>
-</a>
-    
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切換導航欄">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
   </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      Stable Diffusion 本地配置教程
-    </h1>
-  
+</nav>
 
-      </header>
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclfdu6exj20zk0m87hw.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclfb3vzhj20zk0m8wny.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipey84bjtj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeyvx1d4j20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipesng5oej20zk0m87d4.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="基于WebUI的跨平台Stable-Diffusion-AI绘画部署教程（目前仅更新Mac）"><a href="#基于WebUI的跨平台Stable-Diffusion-AI绘画部署教程（目前仅更新Mac）" class="headerlink" title="基于WebUI的跨平台Stable Diffusion AI绘画部署教程（目前仅更新Mac）"></a>基于WebUI的跨平台Stable Diffusion AI绘画部署教程（目前仅更新Mac）</h1><h2 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h2><h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h3><p>本教程适用于有部分开发基础，懂得命令行基本操作的用户。如果对于git、homebrew或者命令行一窍不通，可以尝试app封装版本──DiffusionBee，<a target="_blank" rel="noopener" href="https://diffusionbee.com/">点我前往官网</a>。</p>
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首頁</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-Hans">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/11/Stable-Diffusion-%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="MingS">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="明燊小站">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="基于WebUI的跨平台Stable-Diffusion-AI绘画部署教程（目前仅更新Mac）"><a href="#基于WebUI的跨平台Stable-Diffusion-AI绘画部署教程（目前仅更新Mac）" class="headerlink" title="基于WebUI的跨平台Stable Diffusion AI绘画部署教程（目前仅更新Mac）"></a>基于WebUI的跨平台Stable Diffusion AI绘画部署教程（目前仅更新Mac）</h1><h2 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h2><h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h3><p>本教程适用于有部分开发基础，懂得命令行基本操作的用户。如果对于git、homebrew或者命令行一窍不通，可以尝试app封装版本──DiffusionBee，<span class="exturl" data-url="aHR0cHM6Ly9kaWZmdXNpb25iZWUuY29tLw==">点我前往官网</span>。</p>
 <p>相较于DiffusionBee，WebUI版本的Stable可以兼容的模型更多，bug更少，画面质量更高（DB目前不支持vae文件，很多模型渲染出来会发灰），可以兼容更多的模型（DB部分模型无法导入）。</p>
 <p>建议感兴趣的同学可以稍微花个半小时装一下git，homebrew等基础依赖，然后跟着本教程一步一步来。</p>
 <h3 id="1-依赖安装"><a href="#1-依赖安装" class="headerlink" title="1.依赖安装"></a>1.依赖安装</h3><p>请先确定您正处于代理状态（或者homebrew和pip的镜像源很稳定）</p>
 <p>打开mac的终端，按顺序输入以下命令</p>
-<p>1）安装homebrew（安装过的不用再装了）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</span><br></pre></td></tr></table></figure>
-
-
+<p>1）使用OSHelper配置Xcode CLT和Homebrew（安装过的不用再装了）</p>
+<p>输入以下命令唤起OSHelper</p>
+<p>按照指引安装Xcode CLT和Homebrew（安装Homebrew时最后会让你跑两行命令，请留意，一般来说会在输出结束前几行有提示）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://ghproxy.com/https://raw.githubusercontent.com/Ligure-Studio/MacOSHelperShell/main/OSHelper_Stable.sh -O &amp;&amp; sh OSHelper_Stable.sh</span><br></pre></td></tr></table></figure>
 
 <p>2）安装基本依赖</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install cmake protobuf rust python@3.10 git wget</span><br></pre></td></tr></table></figure>
 
-<p>3）克隆存储库（默认在用户文件夹中）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui</span><br></pre></td></tr></table></figure>
-
-<p>4）前往<a target="_blank" rel="noopener" href="https://www.123114514.xyz/">资源站</a>下载模型</p>
-<p><img src="https://s2.loli.net/2023/02/25/1H8zGFJq9rvDcA6.png" alt="Picsee-20230225150409"></p>
-<p><img src="https://s2.loli.net/2023/02/25/7CxjR2B4rQVqgfu.png" alt="Picsee-20230225150419"></p>
-<p>进入后选择你的模型（二次元画作的话推荐使用Anything V3.0，比较稳定，但是vae（防止发灰，可以这么理解）要到<a target="_blank" rel="noopener" href="https://web.archive.org/web/20230105135929/https://huggingface.co/Linaqruf/anything-v3.0/blob/main/Anything-V3.0.vae.pt">hugging face</a> 下载）</p>
-<p><img src="https://s2.loli.net/2023/02/25/DoaV2teSdqK64jR.png" alt="Picsee-20230225150817"></p>
-<p>(目前3.0不维护了，但是vae.pt可以在wayback machine中找到)</p>
-<p>下载好模型后，在终端中输入以下指令，将模型拖入弹出的文件夹中（如果有vae则将vae一起拖进去，确保两个文件除了拓展名其它都一样）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open ~/stable-diffusion-webui/models/Stable-diffusion</span><br></pre></td></tr></table></figure>
-
-<p>5）启动</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/stable-diffusion-webui</span><br><span class="line">./webui.sh</span><br></pre></td></tr></table></figure>
+<p>3）前往<span class="exturl" data-url="aHR0cHM6Ly93d3cuMTIzcGFuLmNvbS9zL0lPN1NWdi1QMWFqaC5odG1s">网盘</span>下载整合包</p>
+<p>下载完成之后解压放在你喜欢的路径并执行指令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &quot;文件夹路径&quot;</span><br><span class="line">./webui.sh</span><br></pre></td></tr></table></figure>
 
 <p>注意：<strong>一定要cd进去再打开，不要直接 sh ~&#x2F;stable-diffusion-webui&#x2F;webui.sh，不然会报错</strong></p>
-<p>6）完成</p>
+<p>4）完成</p>
 <p>跟着提示走就行了，有报错可以在下面发帖，我会回复</p>
 <p>在所有依赖自动安装完成后，会有如图显示</p>
-<p><img src="https://s2.loli.net/2023/02/25/34SfXtIVjBKeb9r.png" alt="Picsee-20230225151338"></p>
+<p><img data-src="https://s2.loli.net/2023/02/25/34SfXtIVjBKeb9r.png" alt="Picsee-20230225151338"></p>
 <p>接着可以访问上面的local URL来进行AI绘画啦！</p>
-<p>本教程仅为安装教程，后期如果有人需要，会出插件教程</p>
-<p>界面图（刚安装好为英文，可以b站搜SD汉化教程）</p>
-<p><img src="https://s2.loli.net/2023/02/25/VSZ5HKY7L8hjsvn.png" alt="Picsee-20230225151555"></p>
+<p>整合包中已经自带常用插件与模型</p>
+<p><img data-src="https://s2.loli.net/2023/02/25/VSZ5HKY7L8hjsvn.png" alt="Picsee-20230225151555"></p>
 <p>绘画图片展示</p>
-<p><img src="https://s2.loli.net/2023/02/25/DcJOSExhTz2bqlM.png" alt="00059-777662464"></p>
-<p><img src="https://s2.loli.net/2023/02/25/4thpZMcw92PYaIW.png" alt="00035-1673888093"></p>
-<p><img src="https://s2.loli.net/2023/02/25/Hv4d9PA1wtsUqn8.png" alt="00012-3844270718"></p>
-<p>可以配合<a target="_blank" rel="noopener" href="https://github.com/upscayl/upscayl/releases">Upscayl</a>进行超分辨率</p>
+<p><img data-src="https://s2.loli.net/2023/03/11/v1KUVS3DkmPz5iW.png" alt="00005-131185446"></p>
+<p><img data-src="https://s2.loli.net/2023/03/11/eN92axkl47UJYXn.png" alt="00104-3078842384"><br><img data-src="https://s2.loli.net/2023/03/11/RIYjZAGN2Efx1Dt.png" alt="00085-3078842365"><br><img data-src="https://s2.loli.net/2023/03/11/F5HWIgwfXzRuaEO.png" alt="00087-3078842367"><br><img data-src="https://s2.loli.net/2023/03/11/3g7RsaQeP2thSAM.png" alt="00084-3078842364"><br><img data-src="https://s2.loli.net/2023/03/11/5ZJUFpyHk9NRmdV.png" alt="00026-1260762057"><br><img data-src="https://s2.loli.net/2023/03/11/uCbl7BYpmzAIOdE.png" alt="00022-2866403212"><br><img data-src="https://s2.loli.net/2023/03/11/fMG1IhVkby9ciLg.png" alt="00014-1510261546"></p>
+<p>可以配合<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Vwc2NheWwvdXBzY2F5bC9yZWxlYXNlcw==">Upscayl</span>进行超分辨率</p>
 <h3 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h3><p>出图速度我的m1 16gb大概是在半分钟到一分钟，配置差的话参数不要调太大。</p>
 <p>这个也有colab版本，不过本地会更舒服一点（个人感觉）</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/11/Stable-Diffusion-%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/" data-id="clf3mgdte0000h89k8mcb2jxv" data-title="Stable Diffusion 本地配置教程" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
-
-    </footer>
+      <div class="tags">
+          <a href="/tags/%E6%95%99%E7%A8%8B/" rel="tag"><i class="ic i-tag"></i> 教程</a>
+      </div>
   </div>
-  
-    
-  
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新於</span>
+    <time title="修改時間：2023-03-12 11:21:33" itemprop="dateModified" datetime="2023-03-12T11:21:33+08:00">2023-03-12</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 打賞</button>
+  <p>請我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="MingS 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="MingS 支付寶">
+        <p>支付寶</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="MingS PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>博主： </strong>MingS <i class="ic i-at"><em>@</em></i>明燊小站
+  </li>
+  <li class="link">
+    <strong>文章連結：</strong>
+    <a href="http://example.com/2023/03/11/Stable-Diffusion-%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/" title="Stable Diffusion 本地配置教程">http://example.com/2023/03/11/Stable-Diffusion-本地配置教程/</a>
+  </li>
+  <li class="license">
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 許可協議。轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
 </article>
 
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
-    </div>
   </div>
-
-
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 10px;">教程</a>
+
+<div class="post-nav">
+    <div class="item left">
     </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li></ul>
+    <div class="item right">
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/03/11/Stable-Diffusion-%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/">Stable Diffusion 本地配置教程</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+</div>
 
   
-</aside>
-        
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目錄">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8EWebUI%E7%9A%84%E8%B7%A8%E5%B9%B3%E5%8F%B0Stable-Diffusion-AI%E7%BB%98%E7%94%BB%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B%EF%BC%88%E7%9B%AE%E5%89%8D%E4%BB%85%E6%9B%B4%E6%96%B0Mac%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">基于WebUI的跨平台Stable Diffusion AI绘画部署教程（目前仅更新Mac）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#macOS"><span class="toc-number">1.1.</span> <span class="toc-text">macOS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-%E5%89%8D%E8%A8%80"><span class="toc-number">1.1.1.</span> <span class="toc-text">0.前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BE%9D%E8%B5%96%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.依赖安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E5%90%8E%E9%9D%A2"><span class="toc-number">1.1.3.</span> <span class="toc-text">写在后面</span></a></li></ol></li></ol></li></ol>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2023 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="本站概覽">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="MingS"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">MingS</p>
+  <div class="description" itemprop="description"></div>
+</div>
 
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">1</span>
+        <span class="name">文章</span>
+      </a>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">1</span>
+        <span class="name">標籤</span>
+      </a>
+    </div>
 </nav>
-    
 
+<div class="social">
+</div>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
+<ul class="menu">
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首頁</a>
+  </li>
 
 
+</ul>
 
-
-<script src="/js/script.js"></script>
-
-
-
-
-
+      </div>
+    </div>
   </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>隨機文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/03/11/Stable-Diffusion-%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/" title="Stable Diffusion 本地配置教程">Stable Diffusion 本地配置教程</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新評論</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">MingS @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基於 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/03/11/Stable-Diffusion-本地配置教程/',
+    favicon: {
+      show: "（●´3｀●）復活成功",
+      hide: "(´Д｀)瀏覽器崩潰啦"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "關於 「 ${query} 」 ，什麼也沒搜到",
+      stats: "${time} ms 內找到 ${hits} 條結果"
+    },
+    valine: true,fancybox: true,
+    copyright: '複製成功，轉載請遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 協議。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
 </body>
 </html>
