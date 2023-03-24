@@ -3,52 +3,37 @@
     <id>http://example.com</id>
     <title>明燊小站</title>
     <link href="http://example.com" />
-    <updated>2023-03-19T03:32:13.000Z</updated>
+    <updated>2023-03-24T13:34:28.000Z</updated>
     <category term="教程" />
+    <category term="代理,教程" />
     <entry>
-        <id>http://example.com/2023/03/19/Stable-Diffusion-%E5%AE%8C%E6%95%B4%E6%95%99%E7%A8%8B%EF%BC%88%E9%9D%9E%E6%95%B4%E5%90%88%E5%8C%85%EF%BC%89/</id>
-        <title>Stable Diffusion 完整教程（非整合包）</title>
-        <link rel="alternate" href="http://example.com/2023/03/19/Stable-Diffusion-%E5%AE%8C%E6%95%B4%E6%95%99%E7%A8%8B%EF%BC%88%E9%9D%9E%E6%95%B4%E5%90%88%E5%8C%85%EF%BC%89/"/>
-        <content type="html">&lt;h1 id=&#34;基于webui的跨平台stable-diffusion-ai绘画部署教程目前仅更新mac&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基于webui的跨平台stable-diffusion-ai绘画部署教程目前仅更新mac&#34;&gt;#&lt;/a&gt; 基于 WebUI 的跨平台 Stable Diffusion AI 绘画部署教程（目前仅更新 Mac）&lt;/h1&gt;
-&lt;h2 id=&#34;macos&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#macos&#34;&gt;#&lt;/a&gt; macOS&lt;/h2&gt;
-&lt;h3 id=&#34;0前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#0前言&#34;&gt;#&lt;/a&gt; 0. 前言&lt;/h3&gt;
-&lt;p&gt;本教程适用于有部分开发基础，懂得命令行基本操作的用户。如果对于 git、homebrew 或者命令行一窍不通，可以尝试 app 封装版本──DiffusionBee，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kaWZmdXNpb25iZWUuY29tLw==&#34;&gt;点我前往官网&lt;/span&gt;。&lt;/p&gt;
-&lt;p&gt;相较于 DiffusionBee，WebUI 版本的 Stable 可以兼容的模型更多，bug 更少，画面质量更高（DB 目前不支持 vae 文件，很多模型渲染出来会发灰），可以兼容更多的模型（DB 部分模型无法导入）。&lt;/p&gt;
-&lt;p&gt;建议感兴趣的同学可以稍微花个半小时装一下 git，homebrew 等基础依赖，然后跟着本教程一步一步来。&lt;/p&gt;
-&lt;h3 id=&#34;1依赖安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1依赖安装&#34;&gt;#&lt;/a&gt; 1. 依赖安装&lt;/h3&gt;
-&lt;p&gt;请先确定您正处于代理状态（或者 homebrew 和 pip 的镜像源很稳定）&lt;/p&gt;
-&lt;p&gt;打开 mac 的终端，按顺序输入以下命令&lt;/p&gt;
-&lt;p&gt;1）安装 homebrew（安装过的不用再装了）&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;/bin/bash &lt;span class=&#34;token parameter variable&#34;&gt;-c&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;&lt;span class=&#34;token variable&#34;&gt;&lt;span class=&#34;token variable&#34;&gt;$(&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;curl&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-fsSL&lt;/span&gt; https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&lt;span class=&#34;token variable&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;2）安装基本依赖&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;brew &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; cmake protobuf rust python@3.10 &lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;wget&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;3）克隆存储库（默认在用户文件夹中）&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; clone https://github.com/AUTOMATIC1111/stable-diffusion-webui&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;4）前往&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuMTIzMTE0NTE0Lnh5ei8=&#34;&gt;资源站&lt;/span&gt;下载模型&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2023/02/25/1H8zGFJq9rvDcA6.png&#34; alt=&#34;Picsee-20230225150409&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2023/02/25/7CxjR2B4rQVqgfu.png&#34; alt=&#34;Picsee-20230225150419&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;进入后选择你的模型（二次元画作的话推荐使用 Anything V3.0，比较稳定，但是 vae（防止发灰，可以这么理解）要到&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWIuYXJjaGl2ZS5vcmcvd2ViLzIwMjMwMTA1MTM1OTI5L2h0dHBzOi8vaHVnZ2luZ2ZhY2UuY28vTGluYXFydWYvYW55dGhpbmctdjMuMC9ibG9iL21haW4vQW55dGhpbmctVjMuMC52YWUucHQ=&#34;&gt; hugging face&lt;/span&gt; 下载）&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2023/02/25/DoaV2teSdqK64jR.png&#34; alt=&#34;Picsee-20230225150817&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;(目前 3.0 不维护了，但是 vae.pt 可以在 wayback machine 中找到)&lt;/p&gt;
-&lt;p&gt;下载好模型后，在终端中输入以下指令，将模型拖入弹出的文件夹中（如果有 vae 则将 vae 一起拖进去，确保两个文件除了拓展名其它都一样）&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;open&lt;/span&gt; ~/stable-diffusion-webui/models/Stable-diffusion&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;5）启动&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; ~/stable-diffusion-webui&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;./webui.sh&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;注意：&lt;strong&gt;一定要 cd 进去再打开，不要直接 sh ~/stable-diffusion-webui/webui.sh，不然会报错&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;6）完成&lt;/p&gt;
-&lt;p&gt;跟着提示走就行了，有报错可以在下面发帖，我会回复&lt;/p&gt;
-&lt;p&gt;在所有依赖自动安装完成后，会有如图显示&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2023/02/25/34SfXtIVjBKeb9r.png&#34; alt=&#34;Picsee-20230225151338&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;接着可以访问上面的 local URL 来进行 AI 绘画啦！&lt;/p&gt;
-&lt;p&gt;本教程仅为安装教程，后期如果有人需要，会出插件教程&lt;/p&gt;
-&lt;p&gt;界面图（刚安装好为英文，可以 b 站搜 SD 汉化教程）&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2023/02/25/VSZ5HKY7L8hjsvn.png&#34; alt=&#34;Picsee-20230225151555&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;绘画图片展示&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2023/02/25/DcJOSExhTz2bqlM.png&#34; alt=&#34;00059-777662464&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2023/02/25/4thpZMcw92PYaIW.png&#34; alt=&#34;00035-1673888093&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2023/02/25/Hv4d9PA1wtsUqn8.png&#34; alt=&#34;00012-3844270718&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;可以配合&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3Vwc2NheWwvdXBzY2F5bC9yZWxlYXNlcw==&#34;&gt; Upscayl&lt;/span&gt; 进行超分辨率&lt;/p&gt;
-&lt;h3 id=&#34;写在后面&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#写在后面&#34;&gt;#&lt;/a&gt; 写在后面&lt;/h3&gt;
-&lt;p&gt;出图速度我的 m1 16gb 大概是在半分钟到一分钟，配置差的话参数不要调太大。&lt;/p&gt;
-&lt;p&gt;这个也有 colab 版本，不过本地会更舒服一点（个人感觉）&lt;/p&gt;
+        <id>http://example.com/2023/03/24/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B/</id>
+        <title>终端代理保姆级教程</title>
+        <link rel="alternate" href="http://example.com/2023/03/24/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B/"/>
+        <content type="html">&lt;h1 id=&#34;sd代理问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sd代理问题&#34;&gt;#&lt;/a&gt; SD 代理问题&lt;/h1&gt;
+&lt;p&gt;我使用的是 Clash For Windows（mac 同样可用，GitHub 上搜索下载）&lt;/p&gt;
+&lt;p&gt;默认是没有汉化的，可以根据截图操作&lt;/p&gt;
+&lt;p&gt;此处以它为例&lt;/p&gt;
+&lt;p&gt;打开服务模式和 TUN 模式&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2023/03/18/D3NtVdRlLEsAaOu.png&#34; alt=&#34;1&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;购买可以买&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tb2Zhc3QudG9wLyMvcmVnaXN0ZXI/Y29kZT1PVFpwbDQ4MA==&#34;&gt; MoFast&lt;/span&gt;，因为可以按量买，充一两块钱即可&lt;/p&gt;
+&lt;p&gt;（点击上方链接直接跳转）&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2023/03/18/QRgwU8fWSnkyaxN.png&#34; alt=&#34;2&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;然后到 “订阅信息” 中选择一键导入 =&amp;gt; 导入 Clash&lt;/p&gt;
+&lt;p&gt;导入后在 Proxy 选项中选好节点&lt;/p&gt;
+&lt;p&gt;点击 “全局” 复制终端代理命令&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2023/03/24/JHVa1ocIb4NRY6Z.png&#34; alt=&#34;Picsee-20230324214151&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;点击这个复制终端代理命令&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2023/03/24/ehG9zxwENRMf6KQ.png&#34; alt=&#34;Picsee-20230324214240&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2023/03/24/ym3GSshdiobvXaT.png&#34; alt=&#34;Picsee-20230324214316&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;粘帖并回车即可&lt;/p&gt;
+&lt;p&gt;然后正常执行安装&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;！如果你使用代理安装完成 Stable Diffusion 之后，会报这个错&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2023/03/24/ZsRL4fFCmBqV17D.png&#34; alt=&#34;Picsee-20230324214436&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这时重启终端，不输入代理命令直接运行即可&lt;/p&gt;
 </content>
-        <category term="教程" />
-        <updated>2023-03-19T03:32:13.000Z</updated>
+        <category term="代理,教程" />
+        <updated>2023-03-24T13:34:28.000Z</updated>
     </entry>
     <entry>
         <id>http://example.com/2023/03/11/Stable-Diffusion-%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</id>
