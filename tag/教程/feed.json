@@ -5,6 +5,17 @@
     "home_page_url": "http://example.com",
     "items": [
         {
+            "id": "http://example.com/2023/03/24/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B/",
+            "url": "http://example.com/2023/03/24/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B/",
+            "title": "终端代理保姆级教程",
+            "date_published": "2023-03-24T13:34:28.000Z",
+            "content_html": "<h1 id=\"sd代理问题\"><a class=\"anchor\" href=\"#sd代理问题\">#</a> SD 代理问题</h1>\n<p>我使用的是 Clash For Windows（mac 同样可用，GitHub 上搜索下载）</p>\n<p>默认是没有汉化的，可以根据截图操作</p>\n<p>此处以它为例</p>\n<p>打开服务模式和 TUN 模式</p>\n<p><img data-src=\"https://s2.loli.net/2023/03/18/D3NtVdRlLEsAaOu.png\" alt=\"1\" /></p>\n<p>购买可以买<span class=\"exturl\" data-url=\"aHR0cHM6Ly9tb2Zhc3QudG9wLyMvcmVnaXN0ZXI/Y29kZT1PVFpwbDQ4MA==\"> MoFast</span>，因为可以按量买，充一两块钱即可</p>\n<p>（点击上方链接直接跳转）</p>\n<p><img data-src=\"https://s2.loli.net/2023/03/18/QRgwU8fWSnkyaxN.png\" alt=\"2\" /></p>\n<p>然后到 “订阅信息” 中选择一键导入 =&gt; 导入 Clash</p>\n<p>导入后在 Proxy 选项中选好节点</p>\n<p>点击 “全局” 复制终端代理命令</p>\n<p><img data-src=\"https://s2.loli.net/2023/03/24/JHVa1ocIb4NRY6Z.png\" alt=\"Picsee-20230324214151\" /></p>\n<p>点击这个复制终端代理命令</p>\n<p><img data-src=\"https://s2.loli.net/2023/03/24/ehG9zxwENRMf6KQ.png\" alt=\"Picsee-20230324214240\" /></p>\n<p><img data-src=\"https://s2.loli.net/2023/03/24/ym3GSshdiobvXaT.png\" alt=\"Picsee-20230324214316\" /></p>\n<p>粘帖并回车即可</p>\n<p>然后正常执行安装</p>\n<p><strong>注意</strong>！如果你使用代理安装完成 Stable Diffusion 之后，会报这个错</p>\n<p><img data-src=\"https://s2.loli.net/2023/03/24/ZsRL4fFCmBqV17D.png\" alt=\"Picsee-20230324214436\" /></p>\n<p>这时重启终端，不输入代理命令直接运行即可</p>\n",
+            "tags": [
+                "教程",
+                "代理"
+            ]
+        },
+        {
             "id": "http://example.com/2023/03/11/Stable-Diffusion-%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/",
             "url": "http://example.com/2023/03/11/Stable-Diffusion-%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/",
             "title": "Stable Diffusion 本地配置教程",
