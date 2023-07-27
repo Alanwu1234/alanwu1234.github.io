@@ -1,41 +1,15 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://ligure.eu.org</id>
-    <title>Ligure 博客</title>
-    <link href="http://ligure.eu.org" />
-    <updated>2023-04-02T08:43:13.000Z</updated>
+    <id>http://alanwu1234.github.io</id>
+    <title>吴菲特</title>
+    <link href="http://alanwu1234.github.io" />
+    <updated>2023-03-24T13:34:28.000Z</updated>
     <category term="代理" />
     <category term="教程" />
-    <category term="入站必看" />
     <entry>
-        <id>http://ligure.eu.org/2023/04/02/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0-Ligure-Blogs/</id>
-        <title>欢迎来到 Ligure Blogs</title>
-        <link rel="alternate" href="http://ligure.eu.org/2023/04/02/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0-Ligure-Blogs/"/>
-        <content type="html">&lt;h1 id=&#34;欢迎来到ligure-studio&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#欢迎来到ligure-studio&#34;&gt;#&lt;/a&gt; 欢迎来到 Ligure Studio&lt;/h1&gt;
-&lt;p&gt;我们致力于良好的互联网内容与更佳的用户体验，目前成员如下（排名不分先后）&lt;/p&gt;
-&lt;h2 id=&#34;ligure-dev-program&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ligure-dev-program&#34;&gt;#&lt;/a&gt; Ligure Dev Program&lt;/h2&gt;
-&lt;h3 id=&#34;成员名单&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#成员名单&#34;&gt;#&lt;/a&gt; 成员名单&lt;/h3&gt;
-&lt;p&gt;联合发起人：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0ZBTkNoZW5qaWE=&#34;&gt;MingS&lt;/span&gt;, &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0plcnJ5LVhVMTAxMA==&#34;&gt;Jerry&lt;/span&gt;, &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3llZW5qaWUxMjM0NTY=&#34;&gt;yeenjie&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;贡献者：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2Jlc3R3bmg=&#34;&gt;Galvin&lt;/span&gt;, &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1pJQU5HVQ==&#34;&gt;Zian&lt;/span&gt;, &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2lreGlu&#34;&gt;一纸忘忧&lt;/span&gt;，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2ZseWluZ2JpcmQ=&#34;&gt;flyingbird&lt;/span&gt;, &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2lSdWJiaXNo&#34;&gt;lucky&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;特别鸣谢&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#特别鸣谢&#34;&gt;#&lt;/a&gt; 特别鸣谢&lt;/h3&gt;
-&lt;p&gt;动态站站长：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0plcnJ5LVhVMTAxMA==&#34;&gt;Jerry&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;.cn 域名提供者：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3llZW5qaWUxMjM0NTY=&#34;&gt;yeenjie&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;OSHelper 主催：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0plcnJ5LVhVMTAxMA==&#34;&gt;Jerry&lt;/span&gt;, &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3llZW5qaWUxMjM0NTY=&#34;&gt;yeenjie&lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&#34;ligure-channel&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ligure-channel&#34;&gt;#&lt;/a&gt; Ligure Channel&lt;/h2&gt;
-&lt;h3 id=&#34;成员名单-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#成员名单-2&#34;&gt;#&lt;/a&gt; 成员名单&lt;/h3&gt;
-&lt;p&gt;发起人：MingS&lt;/p&gt;
-&lt;p&gt;成员：炭炭炭糖&lt;/p&gt;
-&lt;h3 id=&#34;鸣谢&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#鸣谢&#34;&gt;#&lt;/a&gt; 鸣谢&lt;/h3&gt;
-&lt;p&gt;感谢 &lt;strong&gt;烙饼&lt;/strong&gt; 和 &lt;strong&gt;Traball&lt;/strong&gt; 曾经的贡献&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Ligure Studio 的诞生与发展离不开各位贡献者的努力&lt;/strong&gt;&lt;/p&gt;
-</content>
-        <category term="入站必看" />
-        <updated>2023-04-02T08:43:13.000Z</updated>
-    </entry>
-    <entry>
-        <id>http://ligure.eu.org/2023/03/24/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B/</id>
+        <id>http://alanwu1234.github.io/2023/03/24/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B/</id>
         <title>终端代理保姆级教程</title>
-        <link rel="alternate" href="http://ligure.eu.org/2023/03/24/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B/"/>
+        <link rel="alternate" href="http://alanwu1234.github.io/2023/03/24/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B/"/>
         <content type="html">&lt;h1 id=&#34;sd代理问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sd代理问题&#34;&gt;#&lt;/a&gt; SD 代理问题&lt;/h1&gt;
 &lt;h2 id=&#34;代理软件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代理软件&#34;&gt;#&lt;/a&gt; 代理软件&lt;/h2&gt;
 &lt;p&gt;我使用的是 Clash For Windows（mac 同样可用，GitHub 上搜索下载）&lt;/p&gt;
