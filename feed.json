@@ -5,23 +5,12 @@
     "home_page_url": "http://alanwu1234.github.io",
     "items": [
         {
-            "id": "http://alanwu1234.github.io/2023/07/28/7%E6%9C%8825%E6%97%A5%E5%AF%B9%E4%BA%8E%E4%B8%AD%E5%9B%BD%E8%82%A1%E5%B8%82%E7%9A%84%E5%88%86%E6%9E%90/",
-            "url": "http://alanwu1234.github.io/2023/07/28/7%E6%9C%8825%E6%97%A5%E5%AF%B9%E4%BA%8E%E4%B8%AD%E5%9B%BD%E8%82%A1%E5%B8%82%E7%9A%84%E5%88%86%E6%9E%90/",
-            "title": "7月25日对于中国股市的分析",
-            "date_published": "2023-07-28T08:31:00.000Z",
-            "content_html": "",
+            "id": "http://alanwu1234.github.io/2023/07/28/%E5%AF%B9%E4%BA%8E7-17-7-21%E4%B8%AD%E5%9B%BD%E8%82%A1%E5%B8%82%E7%9A%84%E5%88%86%E6%9E%90/",
+            "url": "http://alanwu1234.github.io/2023/07/28/%E5%AF%B9%E4%BA%8E7-17-7-21%E4%B8%AD%E5%9B%BD%E8%82%A1%E5%B8%82%E7%9A%84%E5%88%86%E6%9E%90/",
+            "title": "对于7.17-7.21中国股市的分析",
+            "date_published": "2023-07-28T12:56:48.000Z",
+            "content_html": "<h1 id=\"对于717-721中国股市的分析\"><a class=\"anchor\" href=\"#对于717-721中国股市的分析\">#</a> 对于 7.17-7.21 中国股市的分析</h1>\n<p>这一周上证指数整体为下跌趋势（一度跌到 3167.75），主要的原因为中国宏观经济数据不够理想，而且相应的刺激政策没有发布，在如此看不到信心的市场中各种资金选择撤出，接下来是对于这周某些板块的解读。</p>\n<h2 id=\"人工智能板块\"><a class=\"anchor\" href=\"#人工智能板块\">#</a> 人工智能板块：</h2>\n<p>7.18 日美股市场，微软推出重磅消息，使其股价大涨，对于 7.19 日 A 股的部分大模型公司起到影响，如大华股份，科大讯飞。</p>\n<p><img data-src=\"https://s2.loli.net/2023/07/28/D7wTYduEqZzno3b.png\" alt=\"图片 1.png\" /></p>\n<p><img data-src=\"https://s2.loli.net/2023/07/28/dLrqUNHRTx2cEXb.png\" alt=\"图片 2.png\" /></p>\n<p>7.20 日，今年的主题板块（AI 人工智能）下跌严重，应该是市场的系统风险，感觉经济无力的情况下，久盘必跌，AI 等今年强势板块（有资金获利盘）跌的更厉害。</p>\n<p><img data-src=\"https://s2.loli.net/2023/07/28/sq2W1BVN9YjZXp8.png\" alt=\"图片 3.png\" /></p>\n<h2 id=\"新能源板块\"><a class=\"anchor\" href=\"#新能源板块\">#</a> 新能源板块：</h2>\n<p>7.19 新能源板块有资金出逃的可能，如宁德时代当天净流出 2.45 亿（如图）。</p>\n<p><img data-src=\"https://s2.loli.net/2023/07/28/DquAbaxXNmJBp72.png\" alt=\"图片 6.png\" /></p>\n<p>7.20 日，新能源板块有小点回弹，如宁王，主要是因为爆出了一些利好消息，但是收盘前被大盘拉下去了。如下（零跑汽车为港股，不作为参考）</p>\n<p><img data-src=\"https://s2.loli.net/2023/07/28/uY89pzvWhIEUqLc.png\" alt=\"图片 4.png\" /></p>\n<h2 id=\"芯片板块\"><a class=\"anchor\" href=\"#芯片板块\">#</a> 芯片板块：</h2>\n<p>在 7.17 上证指数跌 0.87% 的时候芯片板块仍有小许涨幅，主要由于前期美国传言对中国芯片板块的制裁一直没有落地，外界认为不会再有制裁，属于回调。</p>\n<p><img data-src=\"https://s2.loli.net/2023/07/28/sO1EcdV3xjQm5zp.png\" alt=\"图片 5.png\" /></p>\n",
             "tags": []
-        },
-        {
-            "id": "http://alanwu1234.github.io/2023/03/24/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B/",
-            "url": "http://alanwu1234.github.io/2023/03/24/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B/",
-            "title": "终端代理保姆级教程",
-            "date_published": "2023-03-24T13:34:28.000Z",
-            "content_html": "<h1 id=\"sd代理问题\"><a class=\"anchor\" href=\"#sd代理问题\">#</a> SD 代理问题</h1>\n<h2 id=\"代理软件\"><a class=\"anchor\" href=\"#代理软件\">#</a> 代理软件</h2>\n<p>我使用的是 Clash For Windows（mac 同样可用，GitHub 上搜索下载）</p>\n<p>默认是没有汉化的，可以根据截图操作</p>\n<p>此处以它为例</p>\n<p>打开服务模式和 TUN 模式</p>\n<p><img data-src=\"https://s2.loli.net/2023/03/18/D3NtVdRlLEsAaOu.png\" alt=\"1\" /></p>\n<h2 id=\"机场推荐两个按量买的比较便宜\"><a class=\"anchor\" href=\"#机场推荐两个按量买的比较便宜\">#</a> 机场（推荐两个按量买的，比较便宜）</h2>\n<h3 id=\"mofast-魔法云\"><a class=\"anchor\" href=\"#mofast-魔法云\">#</a> MoFast 魔法云</h3>\n<p><span class=\"exturl\" data-url=\"aHR0cHM6Ly9tb2Zhc3QudG9wLyMvcmVnaXN0ZXI/Y29kZT1PVFpwbDQ4MA==\">MoFast（点击直接跳转官网）</span>，余额制机场，一块钱就可以用，不下模型的话充一两块钱即可，界面干净，已经用了一年了，可以长期使用，性价比不错。</p>\n<p><img data-src=\"https://s2.loli.net/2023/03/18/QRgwU8fWSnkyaxN.png\" alt=\"2\" /></p>\n<p>然后到 “订阅信息” 中选择一键导入 =&gt; 导入 Clash</p>\n<h3 id=\"魔戒\"><a class=\"anchor\" href=\"#魔戒\">#</a> 魔戒</h3>\n<p><span class=\"exturl\" data-url=\"aHR0cHM6Ly93d3cubW9qaWUubWUvIy9yZWdpc3Rlcj9jb2RlPUo4MlY3VWs0\">魔戒（点我直接跳转）</span>相比 MoFast 的优点是节点多，性价比更高，但是延迟会略高</p>\n<p><img data-src=\"https://s2.loli.net/2023/04/01/1pAfxw9i2qY7UIM.png\" alt=\"Picsee-20230401172216\" /></p>\n<p>选好计划后，在仪表盘 - 一键订阅中复制订阅地址，粘贴在</p>\n<p><img data-src=\"https://s2.loli.net/2023/04/01/2u6oWC89DFKEklb.png\" alt=\"Picsee-20230401172325\" /></p>\n<h2 id=\"终端代理\"><a class=\"anchor\" href=\"#终端代理\">#</a> 终端代理</h2>\n<p>导入后在 Proxy 选项中选好节点</p>\n<p>点击 “全局” 复制终端代理命令</p>\n<p><img data-src=\"https://s2.loli.net/2023/03/24/JHVa1ocIb4NRY6Z.png\" alt=\"Picsee-20230324214151\" /></p>\n<p>然后点击这个复制终端代理命令</p>\n<p><img data-src=\"https://s2.loli.net/2023/03/24/ehG9zxwENRMf6KQ.png\" alt=\"Picsee-20230324214240\" /></p>\n<p><img data-src=\"https://s2.loli.net/2023/03/24/ym3GSshdiobvXaT.png\" alt=\"Picsee-20230324214316\" /></p>\n<p>粘帖并回车即可</p>\n<p>然后正常执行安装</p>\n<p><strong>注意</strong>！如果你使用代理安装完成 Stable Diffusion 之后，会报这个错</p>\n<p><img data-src=\"https://s2.loli.net/2023/03/24/ZsRL4fFCmBqV17D.png\" alt=\"Picsee-20230324214436\" /></p>\n<p>这时重启终端，不输入代理命令直接运行即可</p>\n",
-            "tags": [
-                "代理",
-                "教程"
-            ]
         }
     ]
 }
