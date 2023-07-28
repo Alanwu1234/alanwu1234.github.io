@@ -3,9 +3,16 @@
     <id>http://alanwu1234.github.io</id>
     <title>吴菲特</title>
     <link href="http://alanwu1234.github.io" />
-    <updated>2023-03-24T13:34:28.000Z</updated>
+    <updated>2023-07-28T08:25:37.000Z</updated>
     <category term="代理" />
     <category term="教程" />
+    <entry>
+        <id>http://alanwu1234.github.io/2023/07/28/hi/</id>
+        <title>hi</title>
+        <link rel="alternate" href="http://alanwu1234.github.io/2023/07/28/hi/"/>
+        <content type="html"></content>
+        <updated>2023-07-28T08:25:37.000Z</updated>
+    </entry>
     <entry>
         <id>http://alanwu1234.github.io/2023/03/24/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B/</id>
         <title>终端代理保姆级教程</title>
